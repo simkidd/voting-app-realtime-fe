@@ -14,7 +14,11 @@ export const ProtectedRoute = ({
   const { user, isAuthenticated, loading } = useAuth();
 
   if (loading) {
-    return <LoadingSpinner />;
+    return (
+      <div className="min-h-dvh flex items-center justify-center">
+        <LoadingSpinner />
+      </div>
+    );
   }
 
   if (!isAuthenticated) {
@@ -32,7 +36,13 @@ export const ProtectedRoute = ({
 export function AuthRoute({ children }: { children?: React.ReactNode }) {
   const { isAuthenticated, loading } = useAuth();
 
-  if (loading) return <LoadingSpinner />;
+  if (loading) {
+    return (
+      <div className="min-h-dvh flex items-center justify-center">
+        <LoadingSpinner />
+      </div>
+    );
+  }
 
   if (isAuthenticated) return <Navigate to="/" replace />;
 
