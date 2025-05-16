@@ -178,7 +178,7 @@ const Vote = () => {
 
   const handleDialogClose = () => {
     setShowSuccessDialog(false);
-    navigate("/");
+    window.location.href = "/";
   };
 
   const navigateBack = () => {
